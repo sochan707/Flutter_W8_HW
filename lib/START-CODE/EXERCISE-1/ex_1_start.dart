@@ -13,16 +13,23 @@ void main() {
             children: [
               Label("Method 1: Loop in Array", bold: true),
               // TODO
+              for(int i = 0; i < colors.length; i++) Text(colors[i]),
               Label("Method 2: Map", bold: true),
               // TODO
+              ...colors.map((e) => Text(e)),
               Label("Method 23: Dedicated Function", bold: true),
               // TODO
+              ...RenderColor(),
             ],
           ),
         ),
       ),
     ),
   );
+}
+
+List<Widget> RenderColor(){
+  return colors.map((c) => Text(c)).toList();
 }
 
 class Label extends StatelessWidget {
