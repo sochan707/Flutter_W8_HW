@@ -15,14 +15,14 @@ class FavoriteJokesScreen extends StatefulWidget {
 class _FavoriteJokesScreenState 
   extends State<FavoriteJokesScreen> {
 
-  Joke? _isFavorite;
+  Joke? favJoke;
 
   void onFavoriteClick(Joke joke) {
     setState(() {
-      if (_isFavorite == joke) {
-        _isFavorite = null;
+      if (favJoke == joke) {
+        favJoke = null;
       } else {
-        _isFavorite = joke;
+        favJoke = joke;
       }
     });
   }
@@ -40,7 +40,7 @@ class _FavoriteJokesScreenState
           for (Joke joke in jokes)
             FavoriteCard(
               joke: joke,
-              isFavorite: _isFavorite == joke,
+              isFavorite: favJoke == joke,
               onFavClicked: () => onFavoriteClick(joke),
             ),
         ],
